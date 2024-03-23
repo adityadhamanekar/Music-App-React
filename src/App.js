@@ -22,6 +22,11 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio(`../src/Songs/${currentSongIndex}.mp3`));
   const [currentTime, setCurrentTime] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleIsOpen() {
+    setIsOpen(open => !open);
+  }
 
   const [progressBarValue, setProgressBarValue] = useState(0);
 
@@ -89,9 +94,13 @@ export default function App() {
 
   return (
     <div className='container'>
-      <Header />
-      <div className="side-main">
-        <SideBar songObject={songObject} onSideItem={handleOnClickSideItem} />
+      <Header handleIsOpen={handleIsOpen} isOpen={isOpen} />
+      <div className='side-main'>
+        <SideBar
+          songObject={songObject}
+          onSideItem={handleOnClickSideItem}
+          isOpen={isOpen}
+        />
         <Main />
       </div>
       <Footer

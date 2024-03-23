@@ -589,13 +589,22 @@ input[type="range"]::-webkit-slider-runnable-track {
   animation: rotate infinite 3s ease;
 }
 
-/* new code */
+/* new code  to apply some responsive design*/
 .side-main {
   position: relative;
   grid-area: side-main;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
+  padding-left: 0.5rem;
+}
+
+.app-icon {
+  width: 3rem;
+  height: 3rem;
+  fill: #f38e82;
+  display: none;
+  margin-right: 3rem;
 }
 
 @keyframes rotate {
@@ -627,12 +636,22 @@ input[type="range"]::-webkit-slider-runnable-track {
   .sidebar {
     position: absolute;
     width: 80%;
-    /* left: -100%; */
+    transition: all 1s ease;
+    backface-visibility: hidden;
     z-index: 100;
-    height: 99%;
+    height: 97%;
+    margin: 1rem;
   }
   .main {
     position: absolute;
     width: 100%;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .app-icon {
+    display: inline;
   }
 }

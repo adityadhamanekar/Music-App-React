@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ handleIsOpen , isOpen }) {
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -26,6 +26,11 @@ export default function Header() {
           <span>Search</span>
         </button>
       </form>
+      <div className='app-btn' onClick={handleIsOpen}>
+        <svg className='app-icon'>
+          <use href={`src/img/app.svg#icon-${isOpen ? "menu" : "close"}`}></use>
+        </svg>
+      </div>
     </header>
   );
 }

@@ -1,6 +1,11 @@
-export default function SideBar({ songObject, onSideItem }) {
+export default function SideBar({ songObject, onSideItem, isOpen }) {
   return (
-    <div className='sidebar'>
+    <div
+      className='sidebar'
+      style={
+        isOpen ? { left: "-100%" } : { left: "0%" }
+      }
+    >
       <nav className='navbar'>
         <ul className='navbar__list'>
           <li className='navbar__item'>
