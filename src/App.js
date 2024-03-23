@@ -90,8 +90,10 @@ export default function App() {
   return (
     <div className='container'>
       <Header />
-      <SideBar songObject={songObject} onSideItem={handleOnClickSideItem} />
-      <Main />
+      <div className="side-main">
+        <SideBar songObject={songObject} onSideItem={handleOnClickSideItem} />
+        <Main />
+      </div>
       <Footer
         onTogglePlay={handleTogglePlay}
         isPlaying={isPlaying}
