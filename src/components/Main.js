@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Main() {
-  const [openBanner, setOpenBanner] = useState(false);
+  const [openBanner, setOpenBanner] = useState(true);
 
   function handleOpenBanner() {
     setOpenBanner(open => !open);
