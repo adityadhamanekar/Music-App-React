@@ -6,6 +6,7 @@ export default function Footer({
   onProgressBarChange,
   progressBarValue,
   audioRef,
+  currentTime
 }) {
   function formatTime(duration, defValue) {
     // Get total seconds
@@ -85,8 +86,7 @@ export default function Footer({
           <div className='song__time'>
             <div className='song__current-time'>
               {formatTime(
-                (audioRef.current.currentTime * progressBarValue) /
-                  100,
+                currentTime,
                 "00:00"
               )}
             </div>

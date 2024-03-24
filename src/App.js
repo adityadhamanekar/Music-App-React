@@ -92,6 +92,8 @@ export default function App() {
 
     audioRef.current.currentTime =
       (progressBarValue * audioRef.current.duration) / 100;
+
+    setCurrentTime(audioRef.current.currentTime);
   }
 
   function handleNextSong() {
@@ -142,6 +144,16 @@ export default function App() {
 
   return (
     <div className='container'>
+      {/* <div
+        className='preloader'
+        style={isVisible ? { display: "flex" } : { display: "none" }}
+      >
+        <div className='spinner'>
+          <svg>
+            <use href='src/img/new.svg#icon-loader'></use>
+          </svg>
+        </div>
+      </div> */}
       <Header handleIsOpen={handleIsOpen} isOpen={isOpen} />
       <div className='side-main'>
         <SideBar
@@ -163,6 +175,7 @@ export default function App() {
         onProgressBarChange={handleChangeProgressBar}
         progressBarValue={progressBarValue}
         audioRef={audioRef}
+        currentTime={currentTime}
       />
     </div>
   );

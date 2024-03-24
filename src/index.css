@@ -28,15 +28,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .container {
   width: 100vw;
   height: 100svh;
   background-color: #fff;
+  position: relative;
 
-  
   box-shadow: 0 2rem 6rem 0.5rem rgba(97, 85, 81, 0.2);
   display: grid;
   grid-template-rows: 10rem minmax(10rem, auto) 10rem;
@@ -45,7 +44,6 @@ body {
     "header header"
     "side-main side-main"
     "playbar playbar";
-   
 }
 
 .header {
@@ -314,13 +312,25 @@ body {
   color: #918581;
 }
 
+.preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, #fbdb89, #f48982);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .spinner {
   margin: 5rem auto;
   text-align: center;
 }
 .spinner svg {
-  height: 6rem;
-  width: 6rem;
+  
+  width: 10vw;
+  aspect-ratio: 1 / 1;
   fill: #f38e82;
   animation: rotate 2s infinite linear;
 }
@@ -554,8 +564,6 @@ body {
   box-shadow: -400px 0 0 400px #f38e82;
 }
 
-
-
 .song__range {
   -webkit-appearance: none;
   width: 100%;
@@ -563,7 +571,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   background-color: #f38d8286;
-  overflow-x: hidden;
+  overflow: hidden;
   border: 50%;
 }
 
@@ -575,7 +583,7 @@ body {
   box-shadow: -400px 0 0 400px #f38e82;
 }
 
-.song__time{
+.song__time {
   display: flex;
   align-items: center;
   justify-content: space-between;
