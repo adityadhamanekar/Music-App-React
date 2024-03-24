@@ -97,10 +97,9 @@ export default function App() {
   function handleNextSong() {
     if (currentSongIndex < 10) setCurrentSongIndex(i => i + 1);
     else setCurrentSongIndex(1);
-
     audioRef.current.src = `../src/Songs/${currentSongIndex}.mp3`;
-    audioRef.current.play();
     setIsPlaying(true);
+    audioRef.current.play();
   }
 
   useEffect(() => {
@@ -163,7 +162,7 @@ export default function App() {
         onPreviosSong={handlePreviosSong}
         onProgressBarChange={handleChangeProgressBar}
         progressBarValue={progressBarValue}
-        audioRef  = {audioRef}
+        audioRef={audioRef}
       />
     </div>
   );

@@ -85,7 +85,7 @@ export default function Footer({
           <div className='song__time'>
             <div className='song__current-time'>
               {formatTime(
-                (audioRef.current.currentTime / audioRef.current.duration) *
+                (audioRef.current.currentTime * progressBarValue) /
                   100,
                 "00:00"
               )}
