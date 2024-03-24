@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-export default function Main() {
+export default function Main({ songObject, currentSongIndex, audioIndex }) {
   const [openBanner, setOpenBanner] = useState(true);
 
   function handleOpenBanner() {
     setOpenBanner(open => !open);
-    console.log(openBanner);
   }
   return (
     <main className='main'>
@@ -48,8 +47,14 @@ export default function Main() {
                 : { top: "-100%", opacity: "0" }
             }
           >
-            <img src='src/covers/1.jpg' alt='' className='banner__photo' />
-            <div className='banner__songname'>play date</div>
+            <img
+              src={`src/covers/${audioIndex}.jpg`}
+              alt=''
+              className='banner__photo'
+            />
+            <div className='banner__songname'>
+              {songObject[audioIndex - 1]?.songName}
+            </div>
             <p className='banner__artist'>Arjit singh</p>
             <svg className='banner__close' onClick={handleOpenBanner}>
               <use href='src/img/new.svg#icon-chevron-thin-up'></use>

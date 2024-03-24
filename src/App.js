@@ -36,6 +36,13 @@ export default function App() {
       e => (audioRef.current.currentTime / audioRef.current.duration) * 100
     );
   };
+  
+  let audioIndex =  parseInt(
+      audioRef.current.src
+        .slice(audioRef.current.src.lastIndexOf("/"))
+        .match(/\d+/)[0]
+    )
+  
 
   useEffect(() => {
     audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
@@ -95,7 +102,7 @@ export default function App() {
     audioRef.current.src = `../src/Songs/${id}.mp3`;
     audioRef.current.play();
     setIsPlaying(true);
-    setIsOpen(open=> !open);
+    setIsOpen(open => !open);
   }
 
   return (
@@ -107,7 +114,11 @@ export default function App() {
           onSideItem={handleOnClickSideItem}
           isOpen={isOpen}
         />
-        <Main />
+        <Main
+          songObject={songObject}
+          currentSongIndex={currentSongIndex}
+          audioIndex={audioIndex}
+        />
       </div>
       <Footer
         onTogglePlay={handleTogglePlay}
