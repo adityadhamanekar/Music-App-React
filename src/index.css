@@ -659,7 +659,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   }
 
   .container {
-    grid-template-rows: 10rem minmax(10rem, auto) 18rem;
+    grid-template-rows: 10rem minmax(10rem, auto) 15rem;
   }
 
   .song {
