@@ -501,11 +501,9 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   fill: #f38e82;
-  transition: all 0.3s;
+  
 }
-.song__icons:hover {
-  transform: scale(1.2);
-}
+
 .song__function {
   display: flex;
   flex-direction: column;

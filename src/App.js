@@ -55,18 +55,23 @@ export default function App() {
     if (currentSongIndex < 10) setCurrentSongIndex(i => i + 1);
     else setCurrentSongIndex(1);
 
-    // audioRef.current.src = `../src/Songs/${currentSongIndex}.mp3`;
+    audioRef.current.src = `../src/Songs/${currentSongIndex}.mp3`;
     audioRef.current.play();
     setIsPlaying(true);
   }
 
-  audioRef.current.addEventListener("ended", () => {
-    setProgressBarValue(0);
-    if (currentSongIndex < 10) setCurrentSongIndex(i => i + 1);
-    else setCurrentSongIndex(1);
-    audioRef.current.play();
-    setIsPlaying(true);
-  });
+  useEffect(() => {
+    const handleSongEnd = () => {
+      setProgressBarValue(0);
+      setCurrentSongIndex(prevIndex => prevIndex + 1);
+      audioRef.current.currentTime = 0;
+      handleNextSong();
+    };
+    audioRef.current.addEventListener("ended", handleSongEnd);
+    return () => {
+      audioRef.current.removeEventListener("ended", handleSongEnd);
+    };
+  }, [audioRef, setCurrentSongIndex, handleNextSong]);
 
   function handlePreviosSong() {
     if (currentSongIndex > 1) setCurrentSongIndex(i => i - 1);
@@ -90,6 +95,7 @@ export default function App() {
     audioRef.current.src = `../src/Songs/${id}.mp3`;
     audioRef.current.play();
     setIsPlaying(true);
+    setIsOpen(open=> !open);
   }
 
   return (
