@@ -7,7 +7,7 @@ export default function Footer({
   progressBarValue,
   audioRef,
 }) {
-  function formatTime(duration) {
+  function formatTime(duration, defValue) {
     // Get total seconds
     const totalSeconds = Math.floor(duration);
 
@@ -21,8 +21,9 @@ export default function Footer({
       String(seconds).padStart(2, "0"),
     ].join(":");
 
-    return formattedTime === "NaN:NaN" ? "04:00" : formattedTime;
+    return formattedTime === "NaN:NaN" ?defValue : formattedTime;
   }
+
 
   return (
     <footer className='song'>
@@ -71,7 +72,11 @@ export default function Footer({
           <input
             type='range'
             min='0'
-            value={progressBarValue}
+            value={
+              isNaN(progressBarValue) && isNaN(NaN)
+                ? 0
+                : progressBarValue
+            }
             max='100'
             onChange={e => onProgressBarChange(e)}
             onClick={e => onProgressBarChange(e)}
@@ -80,11 +85,13 @@ export default function Footer({
           <div className='song__time'>
             <div className='song__current-time'>
               {formatTime(
-                (audioRef.current.currentTime / audioRef.current.duration) * 100
+                (audioRef.current.currentTime / audioRef.current.duration) *
+                  100,
+                "00:00"
               )}
             </div>
             <div className='song__duration'>
-              {formatTime(audioRef.current.duration)}
+              {formatTime(audioRef.current.duration, "04:00")}
             </div>
           </div>
         </div>
