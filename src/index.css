@@ -631,6 +631,9 @@ input[type="range"]::-webkit-slider-runnable-track {
 
   .song__function {
     width: 80%;
+    flex-direction: column-reverse;
+    row-gap: 2rem
+    ;
   }
 
   .sidebar {
@@ -653,5 +656,23 @@ input[type="range"]::-webkit-slider-runnable-track {
 
   .app-icon {
     display: inline;
+  }
+
+  .container {
+    grid-template-rows: 10rem minmax(10rem, auto) 18rem;
+  }
+
+  .song {
+    border-radius: 15px 15px 0px 0px;
+    box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .song__btn{
+    margin: 0 1rem;
+  }
+
+  .song__icons{
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }
