@@ -5,7 +5,25 @@ export default function Footer({
   onPreviosSong,
   onProgressBarChange,
   progressBarValue,
+  audioRef,
 }) {
+  function formatTime(duration) {
+    // Get total seconds
+    const totalSeconds = Math.floor(duration);
+
+    // Calculate minutes and seconds
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    // Format the time
+    const formattedTime = [
+      String(minutes).padStart(2, "0"),
+      String(seconds).padStart(2, "0"),
+    ].join(":");
+
+    return formattedTime === "NaN:NaN" ? "04:00" : formattedTime;
+  }
+
   return (
     <footer className='song'>
       <div className='song__info'>
@@ -59,6 +77,16 @@ export default function Footer({
             onClick={e => onProgressBarChange(e)}
             className='song__range'
           />
+          <div className='song__time'>
+            <div className='song__current-time'>
+              {formatTime(
+                (audioRef.current.currentTime / audioRef.current.duration) * 100
+              )}
+            </div>
+            <div className='song__duration'>
+              {formatTime(audioRef.current.duration)}
+            </div>
+          </div>
         </div>
       </div>
 

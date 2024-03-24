@@ -15,17 +15,17 @@ export default function Main({ songObject, currentSongIndex, audioIndex }) {
           className='covers__photo'
         />
         <img
-          src='src/covers/2.jpg'
+          src='src/covers/21.jpg'
           alt='cover photo'
           className='covers__photo'
         />
         <img
-          src='src/covers/3.jpg'
+          src='src/covers/23.jpg'
           alt='cover photo'
           className='covers__photo'
         />
         <img
-          src='src/covers/4.jpg'
+          src='src/covers/22.jpg'
           alt='cover photo'
           className='covers__photo'
         />
@@ -55,7 +55,9 @@ export default function Main({ songObject, currentSongIndex, audioIndex }) {
             <div className='banner__songname'>
               {songObject[audioIndex - 1]?.songName}
             </div>
-            <p className='banner__artist'>Arjit singh</p>
+            <p className='banner__artist'>
+              {songObject[audioIndex - 1]?.artist}
+            </p>
             <svg className='banner__close' onClick={handleOpenBanner}>
               <use href='src/img/new.svg#icon-chevron-thin-up'></use>
             </svg>

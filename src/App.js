@@ -5,16 +5,53 @@ import Footer from "./components/Footer";
 import Main from "./components/Main";
 
 const songObject = [
-  { songName: "heat wave", songImage: "../src/covers/1.jpg" },
-  { songName: "i dont care at all", songImage: "../src/covers/2.jpg" },
-  { songName: "dispacito", songImage: "../src/covers/3.jpg" },
-  { songName: "harley in hawai", songImage: "../src/covers/4.jpg" },
-  { songName: "middle of the night", songImage: "../src/covers/5.jpg" },
-  { songName: "spaceSong", songImage: "../src/covers/6.jpg" },
-  { songName: "take me to the church", songImage: "../src/covers/7.jpg" },
-  { songName: "playdate", songImage: "../src/covers/8.jpg" },
-  { songName: "aake dekh le", songImage: "../src/covers/9.jpg" },
-  { songName: "let me love you", songImage: "../src/covers/10.jpg" },
+  {
+    songName: "heat wave",
+    songImage: "../src/covers/1.jpg",
+    artist: "Glass Animals",
+  },
+  {
+    songName: "i dont care at all",
+    songImage: "../src/covers/2.jpg",
+    artist: "Cecilia Krull",
+  },
+  {
+    songName: "Wanna be yours",
+    songImage: "../src/covers/3.jpg",
+    artist: "Arctic Monkeys",
+  },
+  {
+    songName: "The lost soul down",
+    songImage: "../src/covers/4.jpg",
+    artist: "DJ Davion",
+  },
+
+  {
+    songName: "A man without love",
+    songImage: "../src/covers/5.jpg",
+    artist: "Engelbert Humperdinck",
+  },
+  {
+    songName: "The night we met",
+    songImage: "../src/covers/6.jpg",
+    artist: "Lord Huron",
+  },
+  {
+    songName: "Perfect",
+    songImage: "../src/covers/7.jpg",
+    artist: "Ed Sheeran",
+  },
+  {
+    songName: "playdate",
+    songImage: "../src/covers/8.jpg",
+    artist: "Melanie Martinez",
+  },
+  { songName: "Death bed", songImage: "../src/covers/9.jpg", artist: "Powfu" },
+  {
+    songName: "Until I found you",
+    songImage: "../src/covers/10.jpg",
+    artist: "Stephen Sanchez",
+  },
 ];
 
 export default function App() {
@@ -36,13 +73,12 @@ export default function App() {
       e => (audioRef.current.currentTime / audioRef.current.duration) * 100
     );
   };
-  
-  let audioIndex =  parseInt(
-      audioRef.current.src
-        .slice(audioRef.current.src.lastIndexOf("/"))
-        .match(/\d+/)[0]
-    )
-  
+
+  let audioIndex = parseInt(
+    audioRef.current.src
+      .slice(audioRef.current.src.lastIndexOf("/"))
+      .match(/\d+/)[0]
+  );
 
   useEffect(() => {
     audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
@@ -127,6 +163,7 @@ export default function App() {
         onPreviosSong={handlePreviosSong}
         onProgressBarChange={handleChangeProgressBar}
         progressBarValue={progressBarValue}
+        audioRef  = {audioRef}
       />
     </div>
   );
