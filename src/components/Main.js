@@ -23,6 +23,14 @@ export default function Main() {
           className='covers__photo'
         />
       </section>
+
+      <section className='main__banner'>
+        <div className='main__background'>
+          <svg className='main__icon'>
+            <use href='src/img/newicons.svg#icon-headphones'></use>
+          </svg>
+        </div>
+      </section>
     </main>
   );
 }

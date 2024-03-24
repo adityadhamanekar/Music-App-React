@@ -1,4 +1,4 @@
-export default function Header({ handleIsOpen , isOpen }) {
+export default function Header({ handleIsOpen, isOpen }) {
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -28,7 +28,7 @@ export default function Header({ handleIsOpen , isOpen }) {
       </form>
       <div className='app-btn' onClick={handleIsOpen}>
         <svg className='app-icon'>
-          <use href={`src/img/app.svg#icon-${isOpen ? "menu" : "close"}`}></use>
+          <use href={`src/img/app.svg#icon-${isOpen ? "close" : "menu"}`}></use>
         </svg>
       </div>
     </header>

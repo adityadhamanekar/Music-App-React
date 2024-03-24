@@ -3,7 +3,7 @@ export default function SideBar({ songObject, onSideItem, isOpen }) {
     <div
       className='sidebar'
       style={
-        isOpen ? { left: "-100%" } : { left: "0%" }
+        isOpen ?  { left: "0%" }:{ left: "-100%" } 
       }
     >
       <nav className='navbar'>
