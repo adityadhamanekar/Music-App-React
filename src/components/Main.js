@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 export default function Main() {
+  const [openBanner, setOpenBanner] = useState(false);
+
+  function handleOpenBanner() {
+    setOpenBanner(open => !open);
+    console.log(openBanner);
+  }
   return (
     <main className='main'>
       <section className='covers'>
@@ -26,9 +34,27 @@ export default function Main() {
 
       <section className='main__banner'>
         <div className='main__background'>
+          <svg className='banner__open' onClick={handleOpenBanner}>
+            <use href='src/img/new.svg#icon-chevron-thin-down'></use>
+          </svg>
           <svg className='main__icon'>
             <use href='src/img/newicons.svg#icon-headphones'></use>
           </svg>
+          <div
+            className='banner__detail'
+            style={
+              openBanner
+                ? { top: "0", opacity: "1" }
+                : { top: "-100%", opacity: "0" }
+            }
+          >
+            <img src='src/covers/1.jpg' alt='' className='banner__photo' />
+            <div className='banner__songname'>play date</div>
+            <p className='banner__artist'>Arjit singh</p>
+            <svg className='banner__close' onClick={handleOpenBanner}>
+              <use href='src/img/new.svg#icon-chevron-thin-up'></use>
+            </svg>
+          </div>
         </div>
       </section>
     </main>
