@@ -1,10 +1,10 @@
-export default function Header({ handleIsOpen, isOpen }) {
+export default function Header({ handleIsOpen, isOpen, navbarRef }) {
   function handleSubmit(e) {
     e.preventDefault();
   }
 
   return (
-    <header className='header'>
+    <header className='header' ref={navbarRef}>
       <div className='header__logo'>
         <div className='header__background'>
           <svg className='header__icon'>

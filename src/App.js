@@ -60,10 +60,23 @@ export default function App() {
   const audioRef = useRef(new Audio(`../src/Songs/${currentSongIndex}.mp3`));
   const [currentTime, setCurrentTime] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
+  const navbarRef = useRef(null);
   function handleIsOpen() {
     setIsOpen(open => !open);
   }
+
+  // handling navbar if click outside
+  useEffect(() => {
+    const handleOutsideClick = event => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   const [progressBarValue, setProgressBarValue] = useState(0);
 
@@ -154,7 +167,7 @@ export default function App() {
           </svg>
         </div>
       </div> */}
-      <Header handleIsOpen={handleIsOpen} isOpen={isOpen} />
+      <Header handleIsOpen={handleIsOpen} isOpen={isOpen} navbarRef= {navbarRef}/>
       <div className='side-main'>
         <SideBar
           songObject={songObject}
