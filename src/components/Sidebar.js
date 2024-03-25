@@ -50,7 +50,7 @@ function SongItem({ song, onSideItem }) {
       </figure>
       <div className='songs__data'>
         <h4 className='songs__title'>{song.songName}</h4>
-        <p className='songs__artist'>sonu nigam</p>
+        <p className='songs__artist'>{song.artist}</p>
       </div>
     </li>
   );

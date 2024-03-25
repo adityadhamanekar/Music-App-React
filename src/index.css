@@ -575,6 +575,8 @@ body {
   border: 50%;
 }
 
+
+
 .song__range::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 10px;
